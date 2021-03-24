@@ -19,15 +19,59 @@ public class Grid {
     }
 
     private void generateRandomInitialState() {
-        // TODO
+        double r ;
+        int i, j;
+        for (i = 0 ; i < this.cells.length ; ++i) {
+            for (j = 0 ; j < this.cells[i].length ; ++j) {
+                r= Math.random();
+                System.out.print(r);
+                if (r < 0.5)
+                    this.cells[i][j].setIsAlive(false);
+                else
+                    this.cells[i][j].setIsAlive(true);
+
+            }
+        }
+
+
+
     }
 
     public void generateNextState() {
-        // TODO
+        int aliveNeighbours;
+        for (int i = 0; i < this.cells.length; ++i) {
+            for (int j = 0; j < this.cells[i].length; ++j) {
+                aliveNeighbours = this.countNeighboursAlive(i, j) ;
+                this.cells[i][j].setIsAlive(cells[i][j].processState(cells[i][j].isAlive(), aliveNeighbours));
+            }
+        }
+    }
+
+    private int countNeighboursAlive (int cellX, int cellY) {
+        int alive = 0 ;
+        for (int i = -1 ; i <= 1 ; ++i) {
+            for (int j = -1 ; j <= 1 ; ++j) {
+                if (i != 0 && j != 0 && cellX + i >= 0 && cellY + j >= 0 && cellX + i < this.cells.length && cellY + j < this.cells[0].length)
+                    alive = this.cells[cellX + i][cellY + j].isAlive() == true ? 1 : 0;
+            }
+        }
+        return alive ;
     }
 
     public String toString() {
-        // TODO
-        return "";
+        String str = "" ;
+        for (int i = 0 ; i < this.cells.length ; ++i) {
+            for (int j = 0 ; j < this.cells[i].length ; ++j) {
+                if (this.cells[i][j].isAlive() == true)
+                    str += 'X';
+                else
+                    str += '.';
+                if (j != 2)
+                    str += ' ';
+            }
+            if (i != this.cells.length - 1)
+                str += '\n' ;
+        }
+        return str;
     }
 }
