@@ -79,7 +79,7 @@ public class Grid {
                     str += 'X';
                 else
                     str += '.';
-                if (j != 2)
+                if (j != this.cells.length - 1)
                     str += ' ';
             }
             if (i != this.cells.length - 1)
