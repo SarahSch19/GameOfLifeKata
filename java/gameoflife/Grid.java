@@ -11,6 +11,7 @@ public class Grid {
     public Grid(int sizeGrid) {
         this.rd = new Random();
         this.sizeGrid = sizeGrid;
+        this.cells = new Cell[sizeGrid][sizeGrid];
         generateRandomInitialState();
     }
 
@@ -22,6 +23,11 @@ public class Grid {
     private void generateRandomInitialState() {
         double r ;
         int i, j;
+        for (i = 0; i < this.sizeGrid; ++i) {
+            for (j = 0; j < this.sizeGrid; ++j) {
+                this.cells[i][j] = new Cell();
+            }
+        }
         for (i = 0 ; i < this.cells.length ; ++i) {
             for (j = 0 ; j < this.cells[i].length ; ++j) {
                 r= Math.random();
