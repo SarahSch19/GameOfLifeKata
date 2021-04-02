@@ -81,10 +81,7 @@ public class Grid {
         String str = "" ;
         for (int i = 0 ; i < this.cells.length ; ++i) {
             for (int j = 0 ; j < this.cells[i].length ; ++j) {
-                if (this.cells[i][j].isAlive() == true)
-                    str += 'X';
-                else
-                    str += '.';
+                str += this.cells[i][j].toString();
                 if (j != this.cells.length - 1)
                     str += ' ';
             }
