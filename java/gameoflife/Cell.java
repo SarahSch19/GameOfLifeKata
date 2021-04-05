@@ -23,6 +23,14 @@ public class Cell {
         this.isAlive = newState;
     }
 
+    /*
+     * processState()
+        * isAlive = status of the passed cell
+        * nbNeighbourCellsAlive = number of neighbours alive
+     * check if cell stay alive or not
+     * return true if alive
+     * else return false
+     */
     static boolean processState(boolean isAlive, int nbNeighbourCellsAlive) {
         if (isAlive == true) {
             if (nbNeighbourCellsAlive == 2 || nbNeighbourCellsAlive == 3)
