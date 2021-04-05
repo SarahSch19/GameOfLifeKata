@@ -8,8 +8,8 @@ public class Grid {
     private int sizeGrid;
     private Random rd;
     /*
-    * initialized this.Cells
-    * And generate the initial state of it
+    * Initializes this.Cells
+    * Generate the initial state of the grid
     */
 
     public Grid(int sizeGrid) {
@@ -26,8 +26,8 @@ public class Grid {
 
     /*
      * generateRandomInitialState()
-     * initialized this.Cells
-     * Put random alive or not into it
+     * Initializes this.cells
+     * Randomly sets the state of each cell
      */
 
     private void generateRandomInitialState() {
@@ -53,8 +53,9 @@ public class Grid {
 
     /*
      * generateNextState()
-     * Copy Cells by Cells of this.cells into this.newCells
-     * Count the Neighbours of one cell then check if she's alive and then call processState to update status of this cell
+     * Copies this.cells into this.newCells to create the next state of the grid
+     * Counts the neighbours of each cell then checks if she's alive and
+     * Then calls processState() to update the status of this cell
      */
     public void generateNextState() {
         int aliveNeighbours;
@@ -79,8 +80,8 @@ public class Grid {
 
     /*
      * countNeighboursAlive()
-     * Allow to count the number of Neighbours alive around of one cell
-     * return number of Neighbours alive
+     * Counts the number of neighbour Cells alive around one cell on line lin and column col
+     * Returns number of Neighbours alive
      */
 
     private int countNeighboursAlive (int lin, int col) {
@@ -98,6 +99,10 @@ public class Grid {
         return alive ;
     }
 
+    /*
+     * toString()
+     * Writes the Grid as a string output
+     */
     public String toString() {
         String str = "" ;
         for (int i = 0 ; i < this.cells.length ; ++i) {

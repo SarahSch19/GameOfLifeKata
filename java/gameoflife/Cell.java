@@ -27,9 +27,9 @@ public class Cell {
      * processState()
         * isAlive = status of the passed cell
         * nbNeighbourCellsAlive = number of neighbours alive
-     * check if cell stay alive or not
-     * return true if alive
-     * else return false
+     * Checks if cell stay alive or not depending on the state of the cell and of the cells around
+     * Returns true if the cell stays alive
+     * Else returns false
      */
     static boolean processState(boolean isAlive, int nbNeighbourCellsAlive) {
         if (isAlive == true) {
